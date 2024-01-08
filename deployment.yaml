@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-app-deployment #deployment name
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: second-app
+      tier: backend
+  template:
+    metadata: 
+      labels:
+        app: second-app
+        tier: backend
+    spec: 
+      containers:
+        - name: second-node #container name
+          image: halcyonnahid/kub-first-app2:updatecode #container image and bello same step follow and make multiple container
+        # - name: ...
+        #   image: ...
